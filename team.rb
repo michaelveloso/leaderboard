@@ -18,7 +18,7 @@ class Team
     summary_output << "Record: #{wins}-#{losses}\n"
     game_id = 1
     games.each do |game|
-      summary_output << "Game #{game_id} #{game[:away_team]} @ #{game[:home_team]}: #{game[:away_score]} - #{game[:home_score]}\n"
+      summary_output << "Game #{game_id}: #{game[:away_team]} @ #{game[:home_team]}, #{game[:away_score]} - #{game[:home_score]}\n"
       game_id += 1
     end
     return summary_output
