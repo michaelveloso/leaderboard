@@ -65,17 +65,23 @@ class League
       end
     end
     leaderboard_output << print_border()
-    leaderboard_output << "\n"
     return leaderboard_output
   end
 
-  def summary()
-    summary_output = ""
+  def team_summaries()
+    team_summary_output = ""
     teams.each do |name, team|
-      summary_output << team.summary
-      summary_output << "\n"
+      team_summary_output << team.summary
+      team_summary_output << "\n"
     end
-    return summary_output
+    return team_summary_output
+  end
+
+  def league_summary()
+    <<SUMMARY
+#{leaderboard}
+#{team_summaries}
+SUMMARY
   end
 
   private

@@ -34,5 +34,4 @@ end
 league_NFL = League.new("NFL")
 league_NFL.add_teams(game_info)
 league_NFL.parse_games(game_info)
-puts league_NFL.leaderboard
-puts league_NFL.summary
+puts league_NFL.league_summary
