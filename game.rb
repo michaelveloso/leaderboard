@@ -9,35 +9,19 @@ class Game
   end
 
   def winner
-    if home_score > away_score
-      home_team
-    else
-      away_team
-    end
+    home_score > away_score ? home_team : away_team
   end
 
   def loser
-    if home_score > away_score
-      away_team
-    else
-      home_team
-    end
+    home_score > away_score ? away_team : home_team
   end
 
   def winning_score
-    if home_score > away_score
-      home_score
-    else
-      away_score
-    end
+    home_score > away_score ? home_score : away_score
   end
 
   def losing_score
-    if home_score > away_score
-      away_score
-    else
-      home_score
-    end
+    home_score > away_score ? away_score : home_score
   end
 
 end
