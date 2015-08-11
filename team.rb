@@ -16,12 +16,9 @@ class Team
     summary_output << "Name: #{name}\n"
     summary_output << "Ranking: #{rank}\n"
     summary_output << "Record: #{wins}-#{losses}\n"
-    game_id = 1
-    games.each do |game|
-      summary_output << "Game #{game_id}: #{game[:away_team]} @ #{game[:home_team]}, #{game[:away_score]} - #{game[:home_score]}\n"
-      game_id += 1
+    games.each_with_index do |game, index|
+      summary_output << "Game #{index + 1}: #{game.away_team} @ #{game.home_team}, #{game.winner} defeat #{game.loser} #{game.winning_score} - #{game.losing_score}\n"
     end
     return summary_output
   end
-
 end

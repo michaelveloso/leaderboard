@@ -1,5 +1,6 @@
 require_relative "team"
 require_relative "league"
+require_relative "game"
 
 def game_info
    [
