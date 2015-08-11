@@ -18,24 +18,16 @@ class League
 
   def parse_games (games)
     games.each do |game|
-      home_team = game[:home_team]
-      home_team_sym = home_team.downcase.to_sym
-      away_team = game[:away_team]
-      away_team_sym = away_team.downcase.to_sym
-      home_score = game[:home_score]
-      away_score = game[:away_score]
-      if home_score > away_score
+      this_game = Game.new(game)
+      home_team_sym = this_game.home_team.downcase.to_sym
+      away_team_sym = this_game.away_team.downcase.to_sym
+      if this_game.home_score > this_game.away_score
         teams[home_team_sym].wins += 1
         teams[away_team_sym].losses += 1
       else
         teams[home_team_sym].losses += 1
         teams[away_team_sym].wins += 1
       end
-      this_game = Game.new({home_team: home_team,
-                            away_team: away_team,
-                            home_score: home_score,
-                            away_score: away_score
-                            })
       teams[home_team_sym].games << this_game
       teams[away_team_sym].games << this_game
     end
